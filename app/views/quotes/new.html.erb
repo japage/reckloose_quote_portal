@@ -1,0 +1,155 @@
+<h1>Create a New Website Quote</h1>
+
+<%= form_for @answer, :url => quote_path(@quote) do %>
+  <%= @questions.each_with_index do |question, i| %>
+    
+
+    puts "#{@questions[i]}: #{@answers[i]["value"]}"
+  <% end %>
+
+<fieldset>
+
+<h2>Basic Website Information</h2>
+    
+    <div>
+      <label for="question1">Do you have a domain?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">Please Choose a Layout</label>
+      <select name="answer[][value]">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">How Many Pages Do You Want?</label>
+      <input id="" name="answer[][value]" type="text" />
+    </div>
+
+    <div>
+      <label for="question1">Do you have a Copy?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">Do you have a Photos?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">Do you have a Logo?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">Do you want to edit the website yourself?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">Do you want to edit the website yourself?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+<h2>Search Engine Optimization</h2>
+
+    <div>
+      <label for="question1">Do you want the website to be optimized for SEO?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">Do you want analytics tracking installed on the website?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="question1">Are You Interested in PPC Advertising?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+<h2>Social Networking</h2>
+
+    <div>
+      <p>Which social networks would you like to be installed?</p>
+      <label class="checkbox inline">
+        <input type="checkbox" id="inlineCheckbox1" value="option1"> Facebook
+      </label>
+      <label class="checkbox inline">
+        <input type="checkbox" id="inlineCheckbox1" value="option1"> Twitter
+      </label>
+      <label class="checkbox inline">
+        <input type="checkbox" id="inlineCheckbox1" value="option1"> Google Places
+      </label>
+      <label class="checkbox inline">
+        <input type="checkbox" id="inlineCheckbox1" value="option1"> LinkedIn
+      </label>
+    </div>
+
+    <div>
+      <label for="question1">Would You Like Your Social Networking Accounts Connected to your website?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+<h2>Email Marketing</h2>
+
+    <div>
+      <label for="question1">Would You Like Your Email Newsletter connected to your website?</label>
+      <select name="answer[][value]">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+<h2>Mobile Website</h2>
+
+    <div>
+      <label for="question1">Would You Like Your Email Newsletter connected to your website?</label>
+      <select name="answer[][value]">
+        <option value="false">No Thanks</option>
+        <option value="Responsive Website">Responsive Website</option>
+        <option value="Separate Mobile Website">Separate Mobile Website</option>
+      </select>
+    </div>
+
+</fieldset>
+
+<input name="commit" type="submit" value="Create Quote" />
+
+<% end %>
