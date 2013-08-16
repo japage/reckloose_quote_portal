@@ -2,8 +2,6 @@
 
 one:
   name: MyText
-  parent: 1
 
 two:
   name: MyText
-  parent: 1
