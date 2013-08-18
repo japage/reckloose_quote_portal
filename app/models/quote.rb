@@ -1,5 +1,3 @@
 class Quote < ActiveRecord::Base
-
-	has_many :answers
-
+	has_many :choices
 end

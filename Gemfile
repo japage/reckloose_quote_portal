@@ -32,14 +32,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'devise'
+gem 'devise', '3.0.0.rc'
 gem "twitter-bootstrap-rails"
-gem "nested_form"
 gem 'simple_form'
 
 gem 'pry'
-
-gem "cancan"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

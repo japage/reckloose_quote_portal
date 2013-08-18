@@ -5,6 +5,17 @@
     <%= f.input :name %>
   </div>
 
+<%= f.fields_for :answers do |builder| %>
+  <fieldset>
+	<%= builder.label :name, "Answer" %><br />
+	<%= builder.text_field :name %><br />
+	<%= builder.label :value, "Value Associated" %><br />
+	<%= builder.text_field :value %><br />
+	<%= builder.check_box :_destroy %>
+	<%= builder.label :_destroy, "Remove Answer" %><br />
+  </fieldset>
+<% end %>
+
   <div class="actions">
     <%= f.button :submit %>
   </div>

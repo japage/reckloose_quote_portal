@@ -1,7 +1,11 @@
-<h1>Create a New Website Quote</h1>
+<p id="notice"><%= notice %></p>
 
-<%= @questions.each_with_index do |question, i| %>
+<!-- Show all questions -->
+<!-- 	For each question show the choice -->
+<!-- 	Next to each choice link to edit with html #anchor to that question_id on edit page -->
 
-  puts "#{@questions[i]}: #{@answers[i]["value"]}"
+<!-- Show total of all choices combined answer values to provide total quote -->
 
-<% end %>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

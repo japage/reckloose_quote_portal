@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyText
+  answer_id: 1
+  quote_id: 1
 
 two:
-  name: MyText
+  answer_id: 1
+  quote_id: 1

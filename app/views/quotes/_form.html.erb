@@ -1,0 +1,15 @@
+<%= simple_form_for(@quote) do |f| %>
+  <%= f.error_notification %>
+
+<ul>
+<% @questions.each do |question| %>
+    <li><%= question.name %></li>
+<% end %>
+</ul>
+<!--     Here I Need Answer.all for question id, and data needs to be saved for choices  -->
+
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
