@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+
 <!-- Show all questions -->
 <!-- 	For each question show the choice -->
 <!-- 	Next to each choice link to edit with html #anchor to that question_id on edit page -->
 
-<!-- Show total of all choices combined answer values to provide total quote -->
+
+<h1>TOTAL: <%=@total%></h1>
 
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |

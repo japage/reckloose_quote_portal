@@ -4,12 +4,16 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all
+    @quotes = current_user.quotes
   end
 
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    #@total = @quote.choices.map { |choice| choice.answer.value }.map { |answer| answer.value }.sum
+    #@total = @quote.choices.map { |choice| choice.answer.value }.sum
+    #@total = @quote.answers.map { |answer| answer.value }.sum
+    @total = @quote.answers.map(&:value).sum
   end
 
   # GET /quotes/new
@@ -30,7 +34,7 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
 
-    @quote.user_id = current_user.id
+    @quote.user = current_user
 
     params[:quote][:questions].each do |question_id, answer_id|
       @quote.choices << Choice.new(:answer_id => answer_id)

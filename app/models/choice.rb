@@ -1,3 +1,4 @@
 class Choice < ActiveRecord::Base
-	has_many :answers
+	belongs_to :answer
+	belongs_to :quote
 end
