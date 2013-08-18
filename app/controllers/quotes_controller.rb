@@ -16,7 +16,10 @@ class QuotesController < ApplicationController
   def new
     @quote = Quote.new
     @questions = Question.all
+    # @users = User.all
+    # @answer = Answer.all
   end
+
 
   # GET /quotes/1/edit
   def edit
@@ -26,6 +29,12 @@ class QuotesController < ApplicationController
   # POST /quotes.json
   def create
     @quote = Quote.new(quote_params)
+
+    @quote.user_id = current_user.id
+
+    params[:quote][:questions].each do |question_id, answer_id|
+      @quote.choices << Choice.new(:answer_id => answer_id)
+    end
 
     respond_to do |format|
       if @quote.save
@@ -70,6 +79,6 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit!
+      params.require(:quote).permit(:questions)
     end
 end

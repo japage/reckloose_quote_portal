@@ -1,15 +1,29 @@
 <%= simple_form_for(@quote) do |f| %>
   <%= f.error_notification %>
-
-<ul>
-<% @questions.each do |question| %>
-    <li><%= question.name %></li>
 <% end %>
-</ul>
-<!--     Here I Need Answer.all for question id, and data needs to be saved for choices  -->
+
+<div class="inputs">
+</div>
+
+
+<%= form_tag(quotes_path) do %>
+		<ul>
+		<% @questions.each do |question| %>
+		    <li><%= question.name %></li>
+
+		    <% question.answers.each do |answer| %>
+		    	<%= radio_button_tag "quote[questions[#{question.id}]]", answer.id %><label><%=answer.name%></label>
+		    	<br/>
+		    	<%= hidden_field_tag :user_id, current_user.id %>
+		    <% end %>
+
+		<% end %>
+		</ul>
 
 
   <div class="actions">
-    <%= f.button :submit %>
+    <%= submit_tag %>
   </div>
 <% end %>
+
+<!--     Here I Need Answer.all for question id, and data needs to be saved for choices  -->
