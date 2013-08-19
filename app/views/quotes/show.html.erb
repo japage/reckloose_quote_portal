@@ -1,10 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 
-<!-- Show all questions -->
-<!-- 	For each question show the choice -->
-<!-- 	Next to each choice link to edit with html #anchor to that question_id on edit page -->
+<ul>
+<% @questions.each do |question| %>
+    
+    <li><%= question.name %></li>
+    
+    <!-- Here I need to include the choice for this question, and a link to the ed -->
 
+    <%= link_to 'Edit', edit_quote_path(@quote, :anchor => "#{question.id}") %>
+
+<% end %>
+</ul>
 
 <h1>TOTAL: <%=@total%></h1>
 

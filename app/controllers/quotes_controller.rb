@@ -14,6 +14,7 @@ class QuotesController < ApplicationController
     #@total = @quote.choices.map { |choice| choice.answer.value }.sum
     #@total = @quote.answers.map { |answer| answer.value }.sum
     @total = @quote.answers.map(&:value).sum
+    @questions = Question.all
   end
 
   # GET /quotes/new
@@ -27,6 +28,8 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
+    @quote = Quote.new
+    @questions = Question.all
   end
 
   # POST /quotes
