@@ -1,21 +1,39 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Back', quotes_path, :class => "btn btn-inverse" %>
 
+<div class="page-header">
+  <h1>Quote From <%= @quote.created_at.strftime("%b. %d %Y") %></h1>
+</div>
 
-<ul>
-<% @quote.answers.each do |answer| %>
-    
-	<%= answer.question_id %>
-	<!-- I can only get the question id to show here, but what I really need is the question name!  A question has many answers.  I think I need to create a lookup in the quotes controller but I'm not sure how to do this -->
+<p class="lead">To edit this quote click on the question you want to edit.</p>
 
-    <li><%= answer.name %></li>
+<div class="alert alert-success">
+	<h1>Quote Total: <strong>$<%=@total%></strong></h1>
+</div>
 
-    <%= link_to 'Edit', edit_quote_path(@quote, :anchor => "#{answer.id}") %>
+<hr>
 
-<% end %>
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Selection</th>
+      <th>Value</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
 
-<h1>TOTAL: <%=@total%></h1>
+  <tbody>
+    <% @quote.answers.each do |answer| %>
+    <tr>
+		<td><%= answer.question_id %></td>
+		<!-- I can only get the question id to show here, but what I really need is the question name!  A question has many answers.  I think I need to create a lookup in the quotes controller but I'm not sure how to do this -->
+		<td><%= answer.name %></td>
+		<td><%= answer.value %></td>
+		<td><%= link_to 'Edit', edit_quote_path(@quote, :anchor => "#{answer.id}"), :class => "btn btn-small btn-info" %></td>
+	</tr>
+	<% end %>
 
+  </tbody>
 
-<%= link_to 'Edit', edit_quote_path(@quote) %> |
-<%= link_to 'Back', quotes_path %>
+</table>

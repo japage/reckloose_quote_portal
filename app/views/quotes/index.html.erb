@@ -1,12 +1,18 @@
-<h1>Listing quotes</h1>
+<div class="page-header">
+  <h1>Listing My Quotes <small>Click to Edit or Remove Quotes</small></h1>
+</div>
+
+<p class="lead">Here you can view all your previous quotes to edit or delete them.  Or click to add a new quote!</p>
+
+<%= link_to '<i class="icon-plus"></i> New Quote '.html_safe, new_quote_path, :class => "btn btn-large btn-success pull-left" %>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Date Created</th>
-      <th>Show Quote</th>
-      <th>Edit Quote</th>
-      <th>Delete Quote</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -16,19 +22,15 @@
         <td><%= quote.created_at.strftime("%b. %d %Y") %>
 
           <% if current_user.try(:admin?) %>
-            <br><%= quote.user.email %>
+            <p><span class="label label-important"><%= quote.user.email %></span></p>
           <% end %>
 
         </td>
-        <td><%= link_to 'Show', quote %></td>
-        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-        <td><%= link_to 'Delete', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', quote, :class => "btn btn-small" %></td>
+        <td><%= link_to 'Edit', edit_quote_path(quote), :class => "btn btn-small btn-info" %></td>
+        <td><%= link_to 'Delete', quote, :class => "btn btn-small btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 
 </table>
-
-<br>
-
-<%= link_to 'New Quote', new_quote_path %>

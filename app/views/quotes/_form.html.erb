@@ -7,25 +7,27 @@
 
 
 <%= form_tag(quotes_path) do %>
-		<ul>
+
+	<fieldset>
 		<% @questions.each do |question| %>
-		    <li><%= question.name %></li>
-
-		    <% question.answers.each do |answer| %>
-
-          <%= radio_button_tag "quote[questions[#{question.id}]]", answer.id, :checked => @quote.answers.include?(answer) %>
-
-          <label><%=answer.name%></label>
-		    	<!-- When we edit go to edit, the radio button are not showing their current values!!!-->
-		    	<br/>
-		    	<%= hidden_field_tag :user_id, current_user.id %>
-		    <% end %>
-
+		<legend><%= question.name %></legend>
+			<% question.answers.each do |answer| %>
+				<label class="radio">
+				  <%= radio_button_tag "quote[questions[#{question.id}]]", answer.id, :checked => @quote.answers.include?(answer) %>
+				  <!-- When we edit go to edit, the radio button are not showing their current values!!!-->
+				  <%=answer.name%>
+				</label>
+				<%= hidden_field_tag :user_id, current_user.id %>
+			<% end %>
+	</fieldset>
 		<% end %>
-		</ul>
 
+<hr>
 
-  <div class="actions">
-    <%= submit_tag %>
-  </div>
+	<div class="actions">
+		<%= button_tag(type: "submit", class: "btn btn-success btn-default") do %>
+		    Submit Quote <i class="icon-arrow-right"></i>
+		<% end %>
+	</div>
+
 <% end %>

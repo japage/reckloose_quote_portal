@@ -1,5 +1,8 @@
-<h1>New quote</h1>
+<div class="page-header">
+  <%= link_to 'Back', quotes_path, :class => "btn btn-inverse" %>
+  <h1>New Quote</h1>
+</div>
+
+<p class="lead">To create a new quote fill out the questions below and submit your quote!</p>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', quotes_path %>

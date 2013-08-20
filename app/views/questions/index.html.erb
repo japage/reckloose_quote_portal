@@ -1,14 +1,18 @@
-<h1>Listing questions</h1>
+<div class="page-header">
+  <h1>Listing Questions <small>Create, Edit or Delete Questions</small></h1>
+</div>
 
-<%= link_to '<i class="icon-plus"></i> New Question '.html_safe, new_question_path, :class => "btn btn-large btn-success pull-right" %>
+<p class="lead">This page is for administrators only. To edit questions for quotes.</p>
+
+<%= link_to '<i class="icon-plus"></i> New Question '.html_safe, new_question_path, :class => "btn btn-large btn-success pull-left" %>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Show Question</th>
-      <th></th>
-      <th></th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -18,7 +22,7 @@
         <td><%= question.name %></td>
         <td><%= link_to 'Show', question, :class => "btn btn-small" %></td>
         <td><%= link_to 'Edit', edit_question_path(question), :class => "btn btn-small btn-info" %></td>
-        <td><%= link_to 'Destroy', question, :class => "btn btn-small btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', question, :class => "btn btn-small btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,8 +1,14 @@
- <fieldset>
-	<%= f.label :name, "Answer" %><br />
-	<%= f.text_field :name %><br />
-	<%= f.label :value, "Value Associated" %><br />
-	<%= f.text_field :value %><br />
+<fieldset>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.label :name, "Answer" %>
+			<%= f.text_field :name %>
+		</div>
+		<div class="span6">
+			<%= f.label :value, "Value Associated" %>
+			<%= f.text_field :value %>
+		</div>
+	</div>
 	<%= f.hidden_field :_destroy %>
-	<%= link_to "remove", '#', class: "remove_fields" %><br />
+	<%= link_to "Remove Answer", '#', class: "btn btn-danger pull-left remove_fields" %>
 </fieldset>
