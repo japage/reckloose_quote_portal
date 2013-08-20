@@ -46,7 +46,9 @@
           <li> <%= link_to 'SignUp', new_user_registration_path %></li>
           <li> <%= link_to 'Login', new_user_session_path %> </li>
         <% end %>
-        
+        <% if current_user.try(:admin?) %>
+          <li><a href="/questions/">Questions</a></li>
+        <% end %>
 
 
 

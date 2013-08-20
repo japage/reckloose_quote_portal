@@ -12,10 +12,8 @@
 		    <li><%= question.name %></li>
 
 		    <% question.answers.each do |answer| %>
-		    	
 
-
-          <%= radio_button_tag "quote[questions[#{question.id}]]", answer.id, checked = true if @quote.answers.include?(answer) %>
+          <%= radio_button_tag "quote[questions[#{question.id}]]", answer.id, :checked => @quote.answers.include?(answer) %>
 
           <label><%=answer.name%></label>
 		    	<!-- When we edit go to edit, the radio button are not showing their current values!!!-->
