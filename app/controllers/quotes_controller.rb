@@ -33,7 +33,7 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
-    @quote = Quote.new
+    @quote = Quote.find(params[:id])
     @questions = Question.all
   end
 

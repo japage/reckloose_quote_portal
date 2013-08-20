@@ -13,7 +13,7 @@
 		<legend><%= question.name %></legend>
 			<% question.answers.each do |answer| %>
 				<label class="radio">
-				  <%= radio_button_tag "quote[questions[#{question.id}]]", answer.id, :checked => @quote.answers.include?(answer) %>
+				  <%= radio_button_tag "quote[questions[#{question.id}]]", answer.id, @quote.answers.include?(answer) %>
 				  <!-- When we edit go to edit, the radio button are not showing their current values!!!-->
 				  <%=answer.name%>
 				</label>
