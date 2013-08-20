@@ -1,22 +1,22 @@
 <h1>Listing quotes</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Quote ID</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Date Created</th>
+      <th>Show Quote</th>
+      <th>Edit Quote</th>
+      <th>Delete Quote</th>
     </tr>
   </thead>
 
   <tbody>
     <% @quotes.each do |quote| %>
       <tr>
-        <td><%= quote.id %></td>
+        <td><%= quote.created_at.strftime("%b. %d %Y") %></td>
         <td><%= link_to 'Show', quote %></td>
         <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-        <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

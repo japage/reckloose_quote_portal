@@ -6,19 +6,10 @@
   </div>
 
 <%= f.fields_for :answers do |builder| %>
-  <fieldset>
-	<%= builder.label :name, "Answer" %><br />
-	<%= builder.text_field :name %><br />
-	<%= builder.label :value, "Value Associated" %><br />
-	<%= builder.text_field :value %><br />
-	<%= builder.check_box :_destroy %>
-	<%= builder.label :_destroy, "Remove Answer" %><br />
-  </fieldset>
+  <%= render 'answer_fields', f: builder %>
 <% end %>
 
-<!-- Also here need to set up how to add a new answer -->
-<!-- see railscast! -->
-
+<%= link_to_add_fields "Add Answer", f, :answers %>
 
   <div class="actions">
     <%= f.button :submit %>

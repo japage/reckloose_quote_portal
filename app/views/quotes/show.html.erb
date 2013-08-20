@@ -2,13 +2,14 @@
 
 
 <ul>
-<% @questions.each do |question| %>
+<% @quote.answers.each do |answer| %>
     
-    <li><%= question.name %></li>
-    
-    <!-- Here I need to include the choice for this question, and a link to the ed -->
 
-    <%= link_to 'Edit', edit_quote_path(@quote, :anchor => "#{question.id}") %>
+    <li><%= @answer.question.name %></li>
+
+    <!-- Also need to show Question here duhhhhh -->
+
+    <%= link_to 'Edit', edit_quote_path(@quote, :anchor => "#{answer.id}") %>
 
 <% end %>
 </ul>

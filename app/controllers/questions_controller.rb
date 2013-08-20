@@ -1,7 +1,5 @@
 class QuestionsController < ApplicationController
-  
-  # Authorize all actions just for user_id = 1
-
+  before_filter :is_admin?
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions

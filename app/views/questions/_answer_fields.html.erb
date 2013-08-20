@@ -1,0 +1,8 @@
+ <fieldset>
+	<%= f.label :name, "Answer" %><br />
+	<%= f.text_field :name %><br />
+	<%= f.label :value, "Value Associated" %><br />
+	<%= f.text_field :value %><br />
+	<%= f.hidden_field :_destroy %>
+	<%= link_to "remove", '#', class: "remove_fields" %><br />
+</fieldset>
