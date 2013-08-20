@@ -5,6 +5,7 @@
 <% @quote.answers.each do |answer| %>
     
 	<%= answer.question_id %>
+	<!-- I can only get the question id to show here, but what I really need is the question name!  A question has many answers.  I think I need to create a lookup in the quotes controller but I'm not sure how to do this -->
 
     <li><%= answer.name %></li>
 
