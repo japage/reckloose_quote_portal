@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20130820031653) do
 
   create_table "answers", force: true do |t|
     t.text     "name"
+    t.integer  "value"
+    t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "question_id"
-    t.integer  "value"
   end
 
   create_table "choices", force: true do |t|
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(version: 20130820031653) do
   end
 
   create_table "quotes", force: true do |t|
+    t.text     "name"
+    t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

@@ -7,7 +7,7 @@ class AddColumnsToUserTable < ActiveRecord::Migration
   		t.string :address_first
   		t.string :address_second
   		t.string :address_city
-		t.string :address_state
+		  t.string :address_state
   		t.string :postal_code
   		t.string :phone_office
   		t.string :phone_mobile
