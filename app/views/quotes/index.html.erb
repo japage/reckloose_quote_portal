@@ -13,13 +13,20 @@
   <tbody>
     <% @quotes.each do |quote| %>
       <tr>
-        <td><%= quote.created_at.strftime("%b. %d %Y") %></td>
+        <td><%= quote.created_at.strftime("%b. %d %Y") %>
+
+          <% if current_user.try(:admin?) %>
+            <br><%= quote.user.email %>
+          <% end %>
+
+        </td>
         <td><%= link_to 'Show', quote %></td>
         <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
         <td><%= link_to 'Delete', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+
 </table>
 
 <br>

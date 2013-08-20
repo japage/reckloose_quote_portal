@@ -4,10 +4,9 @@
 <ul>
 <% @quote.answers.each do |answer| %>
     
+	<%= answer.question_id %>
 
     <li><%= answer.name %></li>
-
-    <!-- Also need to show Question here duhhhhh -->
 
     <%= link_to 'Edit', edit_quote_path(@quote, :anchor => "#{answer.id}") %>
 

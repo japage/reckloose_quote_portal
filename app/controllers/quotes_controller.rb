@@ -5,7 +5,11 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = current_user.quotes
+    if current_user.try(:admin?)
+      @quotes = Quote.all
+    else
+      @quotes = current_user.quotes
+    end
   end
 
   # GET /quotes/1
@@ -15,7 +19,7 @@ class QuotesController < ApplicationController
     #@total = @quote.choices.map { |choice| choice.answer.value }.sum
     #@total = @quote.answers.map { |answer| answer.value }.sum
     @total = @quote.answers.map(&:value).sum
-    @questions = Question.all
+    # @question =Question.find(@quote.answers.question_id)
   end
 
   # GET /quotes/new
