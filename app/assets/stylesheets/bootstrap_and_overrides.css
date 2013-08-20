@@ -82,7 +82,13 @@ hr {
 .row-fluid .span2:nth-child(6n + 7) { margin-left : 0px;clear:left }
 .row-fluid .span1:nth-child(12n + 13) { margin-left : 0px;clear:left }
 
+.texera{
+	width: 100%;
+}
 
+.block{
+	padding: 10px;
+}
 
 /*------------------------------------------------
 Header

@@ -1,15 +1,30 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Back', questions_path, :class => "btn btn-inverse" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @question.name %>
-</p>
+<div class="page-header">
+  <h1><%= @question.name %></h1>
+</div>
 
+<p class="lead">To edit this question click on the value you want to edit.</p>
 
-	<% @question.answers.each do |answer| %>
-        <%= answer.name %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th>Value</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @question.answers.each do |answer| %>
+      <tr>
+        <td><%= answer.name %></td>
+        <td><%= answer.value %></td>
+        <td><%= link_to 'Edit', edit_question_path(@question) %></td>
+      </tr>
     <% end %>
 
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+  </tbody>
+</table> 
+  
